@@ -13,7 +13,7 @@ def create_connection(db_file):
         fill_items(conn)
         fill_purchases(conn)
         conn.commit()
-        print_table(conn,'Items')
+        #print_table(conn,'Items')
     except Error as e:
         print(e)
     finally:
@@ -39,8 +39,9 @@ def create_tables(conn):
     c.execute(sql)
 
 def fill_users(conn):
+    """Fill users table with test data"""
     records = []
-    for i in range(1,50,3):
+    for i in range(1,70,3):
         records.append((i,i+10))
         records.append((i+1,i+11))
         records.append((i+2,i+11))
@@ -48,6 +49,7 @@ def fill_users(conn):
     c.executemany('INSERT INTO Users VALUES(?,?);',records)
 
 def fill_items(conn):
+    """Fill items table with test data"""
     records = []
     for i in range(1,10):
         records.append((i,i*50))
@@ -55,9 +57,10 @@ def fill_items(conn):
     c.executemany('INSERT INTO Items VALUES(?,?);',records)
 
 def fill_purchases(conn):
+    """ Fill purchases table with test data"""
     records = []
     for i in range(1,10000):
-        userId = r.randint(1,51)
+        userId = r.randint(1,70)
         itemId = r.randint(1,10)
         year =  r.randint(2010,2020)
         month = r.randint(1,12)
@@ -73,6 +76,7 @@ def fill_purchases(conn):
     c.executemany('INSERT INTO Purchases VALUES(?,?,?,?)',records)
 
 def print_table(conn, table):
+    """Print table contents for debugging purposes"""
     c = conn.cursor()
     c.execute('SELECT * FROM ' + table)
     rows = c.fetchall()
