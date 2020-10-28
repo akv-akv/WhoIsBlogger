@@ -25,7 +25,7 @@ SELECT AVG(MPrice) FROM
 FROM Items
 INNER JOIN Purchases USING(itemId)
 INNER JOIN Users USING(userId)
-WHERE age >= 18 AND age <=25
+WHERE age >= 26 AND age <=35
 GROUP BY strftime('%Y-%m', date));
 
 /* Monthly order by user */
@@ -34,7 +34,7 @@ SELECT AVG(MPrice)/MUsers FROM
 FROM Items
 INNER JOIN Purchases USING(itemId)
 INNER JOIN Users USING(userId)
-WHERE age >= 18 AND age <=25
+WHERE age >= 26 AND age <=35
 GROUP BY strftime('%Y-%m', date));
 
 
