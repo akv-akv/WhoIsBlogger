@@ -47,9 +47,9 @@ https://altoona.psu.edu/sites/altoona/files/success-word-cloud.jpg
 ![Облако слов из заголовков](./2/Figure_2.png)
 
 1. Скрипт для выгрузки статей
-[createDB.py](./1/createDB.py)
+[parser.py](./2/parser.py)
 2. Скрипт для создания word cloud
-[queries.sql](./1/queries.sql)
+[plotCloud.py](./2/plotCloud.py)
 
 
 ## Вопрос 3
